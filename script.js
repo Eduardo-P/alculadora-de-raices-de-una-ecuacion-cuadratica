@@ -1,4 +1,4 @@
-let a, b, c;
+let a, b, c, discriminante;
 
 function ingresarValor(variable) {
   const valor = prompt(`Ingrese el valor de ${variable}:`);
@@ -20,4 +20,8 @@ function ingresarValor(variable) {
       alert('Por favor, ingrese un valor numérico válido.');
     }
   }
+}
+
+function HallarDiscriminante() {
+    discriminante = b ** 2 - 4 * a * c;
 }
