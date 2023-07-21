@@ -25,3 +25,11 @@ function ingresarValor(variable) {
 function HallarDiscriminante() {
     discriminante = b ** 2 - 4 * a * c;
 }
+
+
+
+function Imprimir() {
+    VerEcuacionCuadratica();
+    VerDiscriminante();
+    VerRaices();
+}
