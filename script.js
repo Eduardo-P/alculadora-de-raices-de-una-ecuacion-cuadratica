@@ -42,3 +42,6 @@ function HallarUnicaRaíz() {
       console.log("La ecuacion no tiene una única raíz");
     }
 }
+function VerDiscriminante(){
+  return discriminante;
+}
