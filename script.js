@@ -63,3 +63,23 @@ function VerRaices(){
 	HallarUnicaRaíz();
 	HallarRaicesComplejas();
 }
+function HallarRaices(a, b, c) {
+  // Calculamos la discriminante
+  const discriminante = b * b - 4 * a * c;
+
+  // Verificamos si la discriminante es mayor a 0
+  if (discriminante > 0) {
+    // Calculamos las raíces usando la fórmula general
+    const raiz1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+    const raiz2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+    
+    // Devolvemos un objeto con las dos raíces
+    return { raiz1, raiz2 };
+  } else {
+    // Si la discriminante es menor o igual a 0, devolvemos un mensaje indicando que no hay raíces reales
+    return "No hay raíces reales, la discriminante es menor o igual a 0.";
+  }
+}
+
+const raices = HallarRaices(coeficienteA, coefIcienteB, coeficienteC);
+console.log(raices);
