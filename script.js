@@ -45,7 +45,7 @@ function HallarUnicaRaíz() {
 function VerDiscriminante(){
   return discriminante;
 }
-function calcularRaicesComplejas(a, b, c ) {  
+function HallarRaicesComplejas(a, b, c ) {  
   if (discriminante < 0) {
     const parteReal = -b / (2 * a);
     const parteImaginaria = Math.sqrt(Math.abs(discriminante)) / (2 * a);
@@ -53,5 +53,13 @@ function calcularRaicesComplejas(a, b, c ) {
     const raiz1 = `${parteReal.toFixed(2)} + ${parteImaginaria.toFixed(2)}i`;
     const raiz2 = `${parteReal.toFixed(2)} - ${parteImaginaria.toFixed(2)}i`;
   }  
-    return [raiz1, raiz2];
+   console.log("Raices complejas " raiz1, "; " raiz2);
+}
+function VerDiscriminante(){
+  return discriminante;
+}
+function VerRaices(){
+	HallarRaíz();
+	HallarUnicaRaíz();
+	HallarRaicesComplejas();
 }
