@@ -28,13 +28,8 @@ body {
     padding: 10px 20px;
     margin-bottom: 10px;
   }
-  
-  .result-container {
-    display: flex;
-  }
 
   #resultado {
     background-color: #f5f2f2;
     padding: 20px;
-    margin-left: 20px;
   }
