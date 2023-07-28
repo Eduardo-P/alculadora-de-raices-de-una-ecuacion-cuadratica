@@ -28,10 +28,13 @@ function HallarDiscriminante() {
 function Raices() {
   HallarDiscriminante()
   if (discriminante > 0){
+    alert("La ecuacion tiene dos raices reales");
     HallarRaices();
   } else if (discriminante == 0){
+    alert("La ecuacion tiene una raiz");
     HallarUnicaRaíz();
   } else {
+    alert("La ecuacion tiene dos raices complejas");
     HallarRaicesComplejas();
   }
 }
