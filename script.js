@@ -55,9 +55,9 @@ function HallarRaicesComplejas() {
 function VerEcuacionCuadratica(){
   var ecuacion = a + "x^2 ";
   if (b < 0){
-    ecuacion += b;
+    ecuacion += b + "x";
   } else {
-    ecuacion += "+ " + b;
+    ecuacion += "+ " + b + "x";
   }
   if (c < 0){
     ecuacion += c;
