@@ -1,4 +1,4 @@
-  let a, b, c, discriminante;
+var a, b, c, discriminante, raiz1, raiz2;
 
 function ingresarValor(variable) {
   const valor = prompt(`Ingrese el valor de ${variable}:`);
@@ -23,63 +23,62 @@ function ingresarValor(variable) {
 }
 
 function HallarDiscriminante() {
-    discriminante = b ** 2 - 4 * a * c;
+    discriminante = b * b - 4 * a * c;
 }
-
-
-
-function Imprimir() {
-    VerEcuacionCuadratica();
-    VerDiscriminante();
-    VerRaices();
-}
-
-function HallarUnicaRaíz() {
-    if(discriminante==0){
-      const unicaRaíz= -b /(2*a);
-      console.log("La unica raiz es: ",unicaRaíz);
-    }else{
-      console.log("La ecuacion no tiene una única raíz");
-    }
-}
-function VerDiscriminante(){
-  return discriminante;
-}
-function HallarRaicesComplejas(a, b, c ) {  
-  if (discriminante < 0) {
-    const parteReal = -b / (2 * a);
-    const parteImaginaria = Math.sqrt(Math.abs(discriminante)) / (2 * a);
-    
-    const raiz1 = `${parteReal.toFixed(2)} + ${parteImaginaria.toFixed(2)}i`;
-    const raiz2 = `${parteReal.toFixed(2)} - ${parteImaginaria.toFixed(2)}i`;
-  }  
-   console.log("Raices complejas " raiz1, "; " raiz2);
-}
-function VerDiscriminante(){
-  return discriminante;
-}
-function VerRaices(){
-	HallarRaíz();
-	HallarUnicaRaíz();
-	HallarRaicesComplejas();
-}
-function HallarRaices(a, b, c) {
-  // Calculamos la discriminante
-  const discriminante = b * b - 4 * a * c;
-
-  // Verificamos si la discriminante es mayor a 0
-  if (discriminante > 0) {
-    // Calculamos las raíces usando la fórmula general
-    const raiz1 = (-b + Math.sqrt(discriminante)) / (2 * a);
-    const raiz2 = (-b - Math.sqrt(discriminante)) / (2 * a);
-    
-    // Devolvemos un objeto con las dos raíces
-    return { raiz1, raiz2 };
+function Raices() {
+  HallarDiscriminante()
+  if (discriminante > 0){
+    HallarRaices();
+  } else if (discriminante == 0){
+    HallarUnicaRaíz();
   } else {
-    // Si la discriminante es menor o igual a 0, devolvemos un mensaje indicando que no hay raíces reales
-    return "No hay raíces reales, la discriminante es menor o igual a 0.";
+    HallarRaicesComplejas();
   }
 }
 
-const raices = HallarRaices(coeficienteA, coefIcienteB, coeficienteC);
-console.log(raices);
+function HallarRaices() {
+    raiz1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+    raiz2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+}
+
+function HallarUnicaRaíz() {
+    raiz1= -b /(2*a);
+}
+
+function HallarRaicesComplejas() {
+  const parteReal = -b / (2 * a);
+  const parteImaginaria = Math.sqrt(Math.abs(discriminante)) / (2 * a);
+  raiz1 = `${parteReal.toFixed(2)} + ${parteImaginaria.toFixed(2)}i`;
+  raiz2 = `${parteReal.toFixed(2)} - ${parteImaginaria.toFixed(2)}i`;
+}
+
+function VerEcuacionCuadratica(){
+  var ecuacion = a + "x^2 ";
+  if (b < 0){
+    ecuacion += b;
+  } else {
+    ecuacion += "+ " + b;
+  }
+  if (c < 0){
+    ecuacion += c;
+  } else {
+    ecuacion += " + " + c;
+  }
+  document.getElementById("resultado").innerHTML = "Ecuacion cuadratica: " + ecuacion;
+}
+function VerDiscriminante(){
+  document.getElementById("resultado").innerHTML += "<br>Discriminante: " + discriminante;
+}
+function VerRaices(){
+	if (discriminante == 0){
+    document.getElementById("resultado").innerHTML += "<br>Raiz: "+ raiz1;
+  } else {
+    document.getElementById("resultado").innerHTML += "<br>Raiz 1: "+ raiz1 + " Raiz 2: " + raiz2;
+  }
+}
+function Imprimir() {
+  Raices()
+  VerEcuacionCuadratica();
+  VerDiscriminante();
+  VerRaices();
+}
