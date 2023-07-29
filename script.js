@@ -1,5 +1,5 @@
 var a, b, c, discriminante, raiz1, raiz2;
-
+// modificacion nro 1
 function ingresarValor(variable) {
   const valor = prompt(`Ingrese el valor de ${variable}:`);
   if (valor !== null) {
